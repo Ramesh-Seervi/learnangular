@@ -69,12 +69,20 @@
       <!-- Tab Selector Buttons -->
       <div class="flex flex-row justify-center gap-4 mb-12 select-none">
         <button (click)="setTab('directives')"
-                [class]="activeTab() === 'directives' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-655 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+                [class]="activeTab() === 'directives' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
           Directives Guide 🛡️
         </button>
         <button (click)="setTab('pipes')"
-                [class]="activeTab() === 'pipes' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-655 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+                [class]="activeTab() === 'pipes' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
           Pipes Guide 🌀
+        </button>
+        <button (click)="setTab('lifecycle')"
+                [class]="activeTab() === 'lifecycle' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+          Lifecycle Guide ⏳
+        </button>
+        <button (click)="setTab('modules')"
+                [class]="activeTab() === 'modules' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+          Modules Guide 📦
         </button>
       </div>
 
@@ -237,6 +245,331 @@
                 <button (click)="updateDate()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-slate-950 rounded-xl text-xs font-semibold transition-all cursor-pointer hover:-translate-y-0.5 active:translate-y-0">
                   Refresh Time 🕒
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+      
+      <!-- Tab Content: Lifecycle -->
+      @if (activeTab() === 'lifecycle') {
+        <div class="text-left w-full animate-fade-in">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">Execution Sequence</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Component Lifecycle Hooks</h2>
+            <p class="text-slate-655 text-sm max-w-xl mx-auto leading-relaxed">
+              Angular manages components from creation to destruction. Tap into key lifecycle moments using lifecycle interface hooks.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Panel: Chronological Timeline (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+              <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <span>Execution Timeline</span>
+                  <span class="text-xs font-normal text-slate-500">(First render execution order)</span>
+                </h3>
+
+                <!-- Timeline Container -->
+                <div class="relative border-l border-slate-200 ml-3 pl-6 space-y-6">
+                  <!-- Hook item: constructor -->
+                  <div class="relative">
+                    <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-slate-400 ring-4 ring-white"></div>
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[10px] font-bold font-mono text-slate-500">01.</span>
+                        <h4 class="text-sm font-bold text-slate-900 font-mono">constructor()</h4>
+                        <span class="text-[9px] font-bold bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded uppercase">Class Init</span>
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Standard JS class constructor. Ideal for Dependency Injection. Do NOT perform complex logic or API requests here.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Hook item: ngOnChanges -->
+                  <div class="relative">
+                    <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-white"></div>
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[10px] font-bold font-mono text-blue-600">02.</span>
+                        <h4 class="text-sm font-bold text-slate-900 font-mono">ngOnChanges()</h4>
+                        <span class="text-[9px] font-black text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded tracking-wide uppercase">Reacts to Inputs</span>
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Fires before <code class="font-mono bg-slate-50 text-slate-700 px-1 text-[11px]">ngOnInit</code> and whenever data-bound inputs/Signals change. Receives a <code class="font-mono bg-slate-50 text-slate-700 px-1 text-[11px]">SimpleChanges</code> map.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Hook item: ngOnInit -->
+                  <div class="relative">
+                    <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-white"></div>
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[10px] font-bold font-mono text-emerald-600">03.</span>
+                        <h4 class="text-sm font-bold text-slate-900 font-mono">ngOnInit()</h4>
+                        <span class="text-[9px] font-black text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded tracking-wide uppercase">Component Setup</span>
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Fires once after inputs are first initialized. Best place to run HTTP fetch requests or load service state.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Hook item: ngDoCheck -->
+                  <div class="relative">
+                    <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-white"></div>
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[10px] font-bold font-mono text-amber-600">04.</span>
+                        <h4 class="text-sm font-bold text-slate-900 font-mono">ngDoCheck()</h4>
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Runs during every change detection cycle. Use it to scan for changes that Angular fails to detect automatically.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Hook item: ngAfterContentInit/Checked -->
+                  <div class="relative">
+                    <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-white"></div>
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[10px] font-bold font-mono text-purple-600">05.</span>
+                        <h4 class="text-sm font-bold text-slate-900 font-mono">ngAfterContentInit() & Checked()</h4>
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Runs after projecting content (<code class="font-mono bg-slate-50 text-slate-700 px-1 text-[11px]">&lt;ng-content&gt;</code>) into the component view.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Hook item: ngAfterViewInit/Checked -->
+                  <div class="relative">
+                    <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-pink-500 ring-4 ring-white"></div>
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[10px] font-bold font-mono text-pink-650">06.</span>
+                        <h4 class="text-sm font-bold text-slate-900 font-mono">ngAfterViewInit() & Checked()</h4>
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Runs after component template views and child views are fully loaded. Mandatory for canvas or direct JS DOM plugins.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Hook item: ngOnDestroy -->
+                  <div class="relative">
+                    <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-rose-500 ring-4 ring-white"></div>
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[10px] font-bold font-mono text-rose-600">07.</span>
+                        <h4 class="text-sm font-bold text-slate-900 font-mono">ngOnDestroy()</h4>
+                        <span class="text-[9px] font-black text-rose-700 bg-rose-50 px-1.5 py-0.5 rounded tracking-wide uppercase">Teardown</span>
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Runs right before component is removed from DOM. Clean up subscriptions, clear timers, and prevent memory leaks.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Interactive Simulator & Code (5 cols) -->
+            <div class="lg:col-span-5 space-y-6">
+              <!-- Simulator Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-black text-indigo-650 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Live Simulator</span>
+                  <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Simulate Lifecycle Run</h3>
+                  <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                    Trigger a mock component render execution sequence. Watch how events fire sequentially inside the console below.
+                  </p>
+
+                  <!-- Simulated Terminal Output -->
+                  <div class="bg-slate-950 rounded-xl border border-slate-900 p-4 font-mono text-[11px] text-slate-350 min-h-[190px] flex flex-col justify-end overflow-hidden mb-6 shadow-inner relative">
+                    <div class="absolute top-2 left-3 flex gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                      <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    </div>
+                    
+                    <div class="space-y-1.5 flex flex-col justify-end flex-grow text-left pt-6">
+                      @if (lifecycleLogs().length === 0) {
+                        <p class="text-slate-500 italic select-none">Console idle. Click run simulator below...</p>
+                      } @else {
+                        @for (log of lifecycleLogs(); track $index) {
+                          <p class="animate-fade-in break-words">{{ log }}</p>
+                        }
+                      }
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <button (click)="runLifecycleDemo()" 
+                          [disabled]="isSimulating()" 
+                          class="flex-1 py-3 bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-300 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-indigo-600/10 cursor-pointer disabled:cursor-not-allowed hover:-translate-y-0.5 active:translate-y-0">
+                    {{ isSimulating() ? 'Simulating...' : 'Run Simulator ⚡' }}
+                  </button>
+                  <button (click)="clearLifecycleLogs()" 
+                          [disabled]="isSimulating() || lifecycleLogs().length === 0"
+                          class="px-4 py-3 bg-slate-100 hover:bg-slate-200 disabled:bg-slate-50 disabled:text-slate-300 text-slate-600 border border-slate-200/80 rounded-xl text-xs font-bold transition-all cursor-pointer disabled:cursor-not-allowed">
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <!-- TypeScript Example Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Example Code</span>
+                <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">Class Hook Implementation</h3>
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-300 overflow-x-auto text-left leading-normal">
+                  <span class="text-indigo-400">import</span> &#123; Component, OnInit, OnDestroy &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br><br>
+                  <span class="text-purple-400">&#64;Component</span>(&#123; selector: <span class="text-emerald-400">'app-demo'</span> &#125;)<br>
+                  <span class="text-indigo-400">export class</span> DemoComponent <span class="text-indigo-400">implements</span> OnInit, OnDestroy &#123;<br>
+                  &nbsp;&nbsp;ngOnInit(): <span class="text-teal-400">void</span> &#123;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="text-emerald-400">'Initialized!'</span>);<br>
+                  &nbsp;&nbsp;&#125;<br><br>
+                  &nbsp;&nbsp;ngOnDestroy(): <span class="text-teal-400">void</span> &#123;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="text-emerald-400">'Destroyed!'</span>);<br>
+                  &nbsp;&nbsp;&#125;<br>
+                  &#125;
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+      
+      <!-- Tab Content: Modules -->
+      @if (activeTab() === 'modules') {
+        <div class="text-left w-full animate-fade-in">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold text-indigo-650 bg-indigo-100 px-3 py-1 rounded-full">Architecture</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Understanding Angular Modules (NgModule)</h2>
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
+              NgModules configure the injector and the compiler. While modern Angular favors Standalone components, modules remain vital for scaling and legacy compatibility.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Panel: Core NgModule Metadata Properties (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+              <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <span>NgModule Properties</span>
+                  <span class="text-xs font-normal text-slate-500">(Core Metadata Fields)</span>
+                </h3>
+
+                <!-- Property Grid / List -->
+                <div class="space-y-6">
+                  <!-- Declarations -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-50 text-indigo-600 uppercase">declarations: [ ]</span>
+                      <h4 class="text-sm font-bold text-slate-900">Declarations Array</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      List of components, directives, and pipes that belong specifically to this module. Elements can only belong to exactly <strong>one</strong> NgModule.
+                    </p>
+                  </div>
+
+                  <!-- Imports -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">imports: [ ]</span>
+                      <h4 class="text-sm font-bold text-slate-900">Imports Array</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      List of other NgModules (e.g. <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">CommonModule</code>, <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">RouterModule</code>) whose exported components/directives/pipes are needed by declarations in this module.
+                    </p>
+                  </div>
+
+                  <!-- Exports -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-550/10 text-purple-650 uppercase">exports: [ ]</span>
+                      <h4 class="text-sm font-bold text-slate-900">Exports Array</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      Subset of declarations that should be visible and usable by any other NgModule importing this module. Allows modular encapsulations.
+                    </p>
+                  </div>
+
+                  <!-- Providers -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">providers: [ ]</span>
+                      <h4 class="text-sm font-bold text-slate-900">Providers Array</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      Registers dependency injection providers. Services declared here are available in the module's injector scope (or application-wide scope depending on registration).
+                    </p>
+                  </div>
+
+                  <!-- Bootstrap -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-rose-50 text-rose-600 uppercase">bootstrap: [ ]</span>
+                      <h4 class="text-sm font-bold text-slate-900">Bootstrap Array</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      Only used in the root NgModule (typically <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">AppModule</code>). Defines the main entrypoint component (e.g. <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">AppComponent</code>) to bootstrap first.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: NgModule vs. Standalone & Code Example (5 cols) -->
+            <div class="lg:col-span-5 space-y-6">
+              <!-- Comparison Card -->
+              <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-50/50 to-blue-50/50 border border-indigo-150/50 shadow-sm">
+                <span class="text-[10px] font-black text-indigo-650 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Evolution</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">NgModule vs. Standalone</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                  Angular 14+ introduces **Standalone Components**, removing the strict need for NgModules. Here is how they compare:
+                </p>
+
+                <div class="border border-slate-200/80 rounded-xl overflow-hidden bg-white text-xs">
+                  <div class="grid grid-cols-2 bg-slate-100/80 border-b border-slate-200/80 font-bold p-2 text-slate-700">
+                    <div>Classic NgModule</div>
+                    <div>Modern Standalone</div>
+                  </div>
+                  <div class="grid grid-cols-2 border-b border-slate-100 p-2 text-[11px] leading-relaxed">
+                    <div class="border-r border-slate-100 pr-2">Declared inside an <code class="font-mono text-[10px] bg-slate-50 px-0.5 rounded">&#64;NgModule</code></div>
+                    <div class="pl-2"><code class="font-mono text-[10px] bg-slate-50 px-0.5 rounded">standalone: true</code> in component</div>
+                  </div>
+                  <div class="grid grid-cols-2 border-b border-slate-100 p-2 text-[11px] leading-relaxed">
+                    <div class="border-r border-slate-100 pr-2">Template gets dependencies from container module imports</div>
+                    <div class="pl-2">Dependencies imported directly in component's <code class="font-mono text-[10px] bg-slate-50 px-0.5 rounded">imports: [...]</code></div>
+                  </div>
+                  <div class="grid grid-cols-2 p-2 text-[11px] leading-relaxed">
+                    <div class="border-r border-slate-100 pr-2">Larger initial bundle size due to module boundaries</div>
+                    <div class="pl-2">Better tree-shaking and component-level lazy loading</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- NgModule Code Example Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Example Code</span>
+                <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">NgModule Declaration</h3>
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-350 overflow-x-auto text-left leading-normal">
+                  <span class="text-indigo-400">import</span> &#123; NgModule &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br>
+                  <span class="text-indigo-400">import</span> &#123; CommonModule &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/common'</span>;<br>
+                  <span class="text-indigo-400">import</span> &#123; UserComponent &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'./user.component'</span>;<br><br>
+                  <span class="text-purple-400">&#64;NgModule</span>(&#123;<br>
+                  &nbsp;&nbsp;declarations: [UserComponent],<br>
+                  &nbsp;&nbsp;imports: [CommonModule],<br>
+                  &nbsp;&nbsp;exports: [UserComponent]<br>
+                  &#125;)<br>
+                  <span class="text-indigo-400">export class</span> UserModule &#123; &#125;
+                </div>
               </div>
             </div>
           </div>
