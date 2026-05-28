@@ -1,1 +1,89 @@
-<p>sales works!</p>
+<div class="relative overflow-hidden bg-zinc-950 text-zinc-100 min-h-[80vh] px-6 py-12">
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="border-b border-zinc-900 pb-6 mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-white">Sales Ledger</h1>
+        <p class="text-sm text-zinc-400">Track incoming invoices, payments, and settlements in real-time.</p>
+      </div>
+      <button class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-semibold transition-all shadow-md shadow-indigo-600/20">
+        Export Report 📄
+      </button>
+    </div>
+
+    <!-- Quick Stats row -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+      <div class="p-5 rounded-2xl bg-zinc-900/30 border border-zinc-900">
+        <span class="text-xs text-zinc-400 uppercase tracking-wider font-bold">Today's Revenue</span>
+        <h3 class="text-2xl font-black text-white mt-1">$4,890.00</h3>
+      </div>
+      <div class="p-5 rounded-2xl bg-zinc-900/30 border border-zinc-900">
+        <span class="text-xs text-zinc-400 uppercase tracking-wider font-bold">Unpaid Invoices</span>
+        <h3 class="text-2xl font-black text-amber-400 mt-1">$1,250.00</h3>
+      </div>
+      <div class="p-5 rounded-2xl bg-zinc-900/30 border border-zinc-900">
+        <span class="text-xs text-zinc-400 uppercase tracking-wider font-bold">Refund Rate</span>
+        <h3 class="text-2xl font-black text-rose-400 mt-1">0.45%</h3>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="rounded-2xl border border-zinc-900 bg-zinc-900/25 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-zinc-900 text-xs font-bold text-zinc-400 uppercase bg-zinc-900/50">
+              <th class="px-6 py-4">Transaction ID</th>
+              <th class="px-6 py-4">Customer</th>
+              <th class="px-6 py-4">Product/Service</th>
+              <th class="px-6 py-4">Status</th>
+              <th class="px-6 py-4 text-right">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-900 text-sm text-zinc-300">
+            <!-- Row 1 -->
+            <tr class="hover:bg-zinc-900/20 transition-colors">
+              <td class="px-6 py-4 font-mono text-xs text-indigo-400">#TX-9402</td>
+              <td class="px-6 py-4">Sarah Connor</td>
+              <td class="px-6 py-4">Enterprise License</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400">Paid</span>
+              </td>
+              <td class="px-6 py-4 text-right font-semibold text-white">$1,200.00</td>
+            </tr>
+            <!-- Row 2 -->
+            <tr class="hover:bg-zinc-900/20 transition-colors">
+              <td class="px-6 py-4 font-mono text-xs text-indigo-400">#TX-9401</td>
+              <td class="px-6 py-4">Bruce Wayne</td>
+              <td class="px-6 py-4">Custom UI Consulting</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400">Pending</span>
+              </td>
+              <td class="px-6 py-4 text-right font-semibold text-white">$3,500.00</td>
+            </tr>
+            <!-- Row 3 -->
+            <tr class="hover:bg-zinc-900/20 transition-colors">
+              <td class="px-6 py-4 font-mono text-xs text-indigo-400">#TX-9400</td>
+              <td class="px-6 py-4">Peter Parker</td>
+              <td class="px-6 py-4">Developer Pro Plan</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400">Paid</span>
+              </td>
+              <td class="px-6 py-4 text-right font-semibold text-white">$49.00</td>
+            </tr>
+            <!-- Row 4 -->
+            <tr class="hover:bg-zinc-900/20 transition-colors">
+              <td class="px-6 py-4 font-mono text-xs text-indigo-400">#TX-9399</td>
+              <td class="px-6 py-4">Clark Kent</td>
+              <td class="px-6 py-4">Hosting Overage Fee</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500/10 text-rose-400">Refunded</span>
+              </td>
+              <td class="px-6 py-4 text-right font-semibold text-white">$15.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
