@@ -1,12 +1,13 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { UpperCasePipe, CurrencyPipe, DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, HighlightDirective, UpperCasePipe, CurrencyPipe, DatePipe],
+  imports: [RouterLink, HighlightDirective, UpperCasePipe, CurrencyPipe, DatePipe, FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -23,13 +24,26 @@ export class Home implements OnInit {
   protected readonly showDetails = signal(false);
 
   // Tab control signal
-  protected readonly activeTab = signal<'directives' | 'pipes' | 'lifecycle' | 'modules'>('directives');
+  protected readonly activeTab = signal<'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings'>('directives');
 
   protected readonly lifecycleLogs = signal<string[]>([]);
   protected readonly isSimulating = signal<boolean>(false);
 
-  protected setTab(tab: 'directives' | 'pipes' | 'lifecycle' | 'modules'): void {
+  // Data Binding demo properties
+  protected readonly isBtnDisabled = signal(false);
+  protected readonly bindingClickCount = signal(0);
+  protected twoWayValue = 'Angular Learner';
+
+  protected setTab(tab: 'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings'): void {
     this.activeTab.set(tab);
+  }
+
+  protected toggleBtnDisabled(): void {
+    this.isBtnDisabled.update(v => !v);
+  }
+
+  protected incrementBindingClick(): void {
+    this.bindingClickCount.update(c => c + 1);
   }
 
   protected runLifecycleDemo(): void {
