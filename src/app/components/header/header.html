@@ -21,10 +21,23 @@
        class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200">
        Contact
     </a>
-    <a routerLink="/login" 
-       routerLinkActive="bg-indigo-600 text-white shadow-lg shadow-indigo-500/20" 
-       class="ml-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white rounded-lg text-sm font-semibold transition-all duration-200">
-       Login
-    </a>
+
+    @if (authService.isLoggedIn()) {
+      <a routerLink="/dashboard" 
+         routerLinkActive="bg-zinc-800 text-white" 
+         class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200">
+         Dashboard
+      </a>
+      <button (click)="logout()" 
+              class="ml-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer">
+        Logout 🚪
+      </button>
+    } @else {
+      <a routerLink="/login" 
+         routerLinkActive="bg-indigo-600 text-white shadow-lg shadow-indigo-500/20" 
+         class="ml-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white rounded-lg text-sm font-semibold transition-all duration-200">
+         Login
+      </a>
+    }
   </nav>
 </header>
