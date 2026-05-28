@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
+import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, HighlightDirective],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -18,5 +19,6 @@ export class Home implements OnInit {
     }
   }
 }
+
 
 

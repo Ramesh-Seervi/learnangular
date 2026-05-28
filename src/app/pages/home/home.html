@@ -3,7 +3,7 @@
   <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
   <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-  <div class="max-w-4xl mx-auto text-center relative z-10">
+  <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
     <!-- Badge -->
     <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-semibold text-indigo-400 mb-8 select-none">
       <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
@@ -31,9 +31,9 @@
       </a>
     </div>
 
-    <!-- Features Section -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left border-t border-zinc-900 pt-16">
-      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-900 hover:border-zinc-800 transition-all duration-300 group">
+    <!-- Features Section (Applying the [appHighlight] custom directive) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left border-t border-zinc-900 pt-16 mb-20">
+      <div [appHighlight]="'rgba(99, 102, 241, 0.08)'" class="p-6 rounded-2xl border border-zinc-900/60 cursor-pointer group">
         <div class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 font-bold mb-4 group-hover:scale-110 transition-transform">
           🛡️
         </div>
@@ -43,7 +43,7 @@
         </p>
       </div>
 
-      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-900 hover:border-zinc-800 transition-all duration-300 group">
+      <div [appHighlight]="'rgba(168, 85, 247, 0.08)'" class="p-6 rounded-2xl border border-zinc-900/60 cursor-pointer group">
         <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 font-bold mb-4 group-hover:scale-110 transition-transform">
           ⚡
         </div>
@@ -53,7 +53,7 @@
         </p>
       </div>
 
-      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-900 hover:border-zinc-800 transition-all duration-300 group">
+      <div [appHighlight]="'rgba(236, 72, 153, 0.08)'" class="p-6 rounded-2xl border border-zinc-900/60 cursor-pointer group">
         <div class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 font-bold mb-4 group-hover:scale-110 transition-transform">
           🌀
         </div>
@@ -63,5 +63,56 @@
         </p>
       </div>
     </div>
+
+    <!-- Educational Directive Guide Section -->
+    <div class="border-t border-zinc-900 pt-16 text-left max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3">Understanding Angular Directives</h2>
+        <p class="text-zinc-400 text-sm max-w-xl mx-auto">Directives allow you to attach behaviors, modify layouts, or build custom elements inside Angular templates.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Component Directive Card -->
+        <div class="p-6 rounded-2xl bg-zinc-900/25 border border-zinc-900/80">
+          <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Type 1</span>
+          <h3 class="text-lg font-bold text-white mt-1 mb-3">Components</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+            Directives with a template. These form the building blocks of your UI structure.
+          </p>
+          <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-900 font-mono text-[10px] text-zinc-400">
+            &lt;app-header&gt;&lt;/app-header&gt;
+          </div>
+        </div>
+
+        <!-- Structural Directive Card -->
+        <div class="p-6 rounded-2xl bg-zinc-900/25 border border-zinc-900/80">
+          <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">Type 2</span>
+          <h3 class="text-lg font-bold text-white mt-1 mb-3">Structural</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+            Directives that alter DOM layouts by adding, removing, or replacing elements dynamically.
+          </p>
+          <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-900 font-mono text-[10px] text-zinc-400">
+            &#64;if (isLoggedIn()) &#123;<br>
+            &nbsp;&nbsp;&lt;p&gt;Welcome back!&lt;/p&gt;<br>
+            &#125;
+          </div>
+        </div>
+
+        <!-- Attribute Directive Card -->
+        <div class="p-6 rounded-2xl bg-zinc-900/25 border border-zinc-900/80">
+          <span class="text-xs font-bold text-pink-400 uppercase tracking-widest">Type 3</span>
+          <h3 class="text-lg font-bold text-white mt-1 mb-3">Attributes</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+            Directives that modify the style, property, or behavior of an existing element.
+          </p>
+          <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-900 font-mono text-[10px] text-zinc-400">
+            &lt;div [appHighlight]="'red'"&gt;<br>
+            &nbsp;&nbsp;Hover to test glow<br>
+            &lt;/div&gt;
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
