@@ -4,13 +4,15 @@ import { Services } from './pages/services/services';
 import { Contact } from './pages/contact/contact';
 import { Login } from './pages/login/login';
 import { Dashboard } from './private/dashboard/dashboard';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   { path: "", component: Home },
   { path: "services", component: Services },
   { path: "contact", component: Contact },
   { path: "login", component: Login },
-  { path: "dashboard", component: Dashboard },
+  { path: "dashboard", component: Dashboard, canActivate: [authGuard] },
 ];
+
 
 

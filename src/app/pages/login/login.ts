@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,17 +14,20 @@ export class Login {
   protected readonly errorMessage = signal<string | null>(null);
 
   protected readonly loginForm = new FormGroup({
-    email: new FormControl('', {
+    email: new FormControl('admin@example.com', {
       nonNullable: true,
       validators: [Validators.required, Validators.email]
     }),
-    password: new FormControl('', {
+    password: new FormControl('password123', {
       nonNullable: true,
       validators: [Validators.required, Validators.minLength(6)]
     })
   });
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   protected onSubmit(): void {
     if (this.loginForm.invalid) {
@@ -40,6 +44,7 @@ export class Login {
       
       // Simulating a successful login for any valid email/password
       if (email === 'admin@example.com' && password === 'password123') {
+        this.authService.login();
         this.isSubmitting.set(false);
         this.router.navigate(['/dashboard']);
       } else {
@@ -49,5 +54,6 @@ export class Login {
     }, 1000);
   }
 }
+
 
 

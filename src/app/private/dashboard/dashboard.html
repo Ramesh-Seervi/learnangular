@@ -9,9 +9,10 @@
         <h1 class="text-3xl font-extrabold tracking-tight text-white mb-2">Management Dashboard</h1>
         <p class="text-zinc-400 text-sm">Welcome back, system administrator. Here is your platform overview.</p>
       </div>
-      <a routerLink="/login" class="px-5 py-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white text-sm font-semibold rounded-xl transition-all duration-200">
+      <button (click)="logout()" class="px-5 py-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white text-sm font-semibold rounded-xl transition-all duration-200 cursor-pointer">
         Sign Out 🚪
-      </a>
+      </button>
+
     </div>
 
     <!-- Stats Cards -->

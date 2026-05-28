@@ -1,11 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
-export class Dashboard {}
+export class Dashboard {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  protected logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+}
+
 
