@@ -64,55 +64,184 @@
       </div>
     </div>
 
-    <!-- Educational Directive Guide Section -->
-    <div class="border-t border-zinc-900 pt-16 text-left max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3">Understanding Angular Directives</h2>
-        <p class="text-zinc-400 text-sm max-w-xl mx-auto">Directives allow you to attach behaviors, modify layouts, or build custom elements inside Angular templates.</p>
+    <!-- Tabs Container in Light Theme (White background / Black text) -->
+    <div class="bg-slate-100 border border-slate-200/80 shadow-2xl rounded-3xl p-8 md:p-12 mt-16 max-w-4xl mx-auto w-full text-slate-800 relative z-10">
+      <!-- Tab Selector Buttons -->
+      <div class="flex flex-row justify-center gap-4 mb-12 select-none">
+        <button (click)="setTab('directives')"
+                [class]="activeTab() === 'directives' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-655 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+          Directives Guide 🛡️
+        </button>
+        <button (click)="setTab('pipes')"
+                [class]="activeTab() === 'pipes' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-655 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+          Pipes Guide 🌀
+        </button>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Component Directive Card -->
-        <div class="p-6 rounded-2xl bg-zinc-900/25 border border-zinc-900/80">
-          <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Type 1</span>
-          <h3 class="text-lg font-bold text-white mt-1 mb-3">Components</h3>
-          <p class="text-xs text-zinc-400 leading-relaxed mb-4">
-            Directives with a template. These form the building blocks of your UI structure.
-          </p>
-          <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-900 font-mono text-[10px] text-zinc-400">
-            &lt;app-header&gt;&lt;/app-header&gt;
+      <!-- Tab Content: Directives -->
+      @if (activeTab() === 'directives') {
+        <div class="text-left w-full animate-fade-in">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">Guides</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Understanding Angular Directives</h2>
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">Directives allow you to attach custom behaviors, modify layouts, or build modular structures inside templates.</p>
           </div>
-        </div>
 
-        <!-- Structural Directive Card -->
-        <div class="p-6 rounded-2xl bg-zinc-900/25 border border-zinc-900/80">
-          <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">Type 2</span>
-          <h3 class="text-lg font-bold text-white mt-1 mb-3">Structural</h3>
-          <p class="text-xs text-zinc-400 leading-relaxed mb-4">
-            Directives that alter DOM layouts by adding, removing, or replacing elements dynamically.
-          </p>
-          <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-900 font-mono text-[10px] text-zinc-400">
-            &#64;if (isLoggedIn()) &#123;<br>
-            &nbsp;&nbsp;&lt;p&gt;Welcome back!&lt;/p&gt;<br>
-            &#125;
-          </div>
-        </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Component Directive Card -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-[10px] font-black text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Type 1</span>
+                  <span class="text-xs text-slate-400">HTML Tags</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Components</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                  Directives with an encapsulated template. These form the visual building blocks of your app.
+                </p>
+                <div class="p-3 bg-slate-900 rounded-xl border border-slate-950 font-mono text-[10px] text-slate-300 mb-6">
+                  <span class="text-slate-500">&lt;</span><span class="text-indigo-400">app-header</span><span class="text-slate-500">&gt;&lt;/</span><span class="text-indigo-400">app-header</span><span class="text-slate-500">&gt;</span>
+                </div>
+              </div>
+              <div class="py-2 text-center text-slate-500 bg-slate-50 border border-dashed border-slate-200 rounded-xl text-xs font-semibold cursor-default select-none">
+                Active Global Navbar ☝️
+              </div>
+            </div>
 
-        <!-- Attribute Directive Card -->
-        <div class="p-6 rounded-2xl bg-zinc-900/25 border border-zinc-900/80">
-          <span class="text-xs font-bold text-pink-400 uppercase tracking-widest">Type 3</span>
-          <h3 class="text-lg font-bold text-white mt-1 mb-3">Attributes</h3>
-          <p class="text-xs text-zinc-400 leading-relaxed mb-4">
-            Directives that modify the style, property, or behavior of an existing element.
-          </p>
-          <div class="p-3 bg-zinc-950 rounded-xl border border-zinc-900 font-mono text-[10px] text-zinc-400">
-            &lt;div [appHighlight]="'red'"&gt;<br>
-            &nbsp;&nbsp;Hover to test glow<br>
-            &lt;/div&gt;
+            <!-- Structural Directive Card -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Type 2</span>
+                  <span class="text-xs text-slate-400">DOM Layout</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Structural</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                  Directives that alter DOM layouts by dynamically adding, removing, or replacing elements.
+                </p>
+                <div class="p-3 bg-slate-900 rounded-xl border border-slate-950 font-mono text-[10px] text-slate-300 mb-4">
+                  <span class="text-purple-400">&#64;if</span> (showDetails()) &#123;<br>
+                  &nbsp;&nbsp;<span class="text-slate-500">&lt;</span><span class="text-indigo-400">p</span><span class="text-slate-500">&gt;</span>Active View!<span class="text-slate-500">&lt;/</span><span class="text-indigo-400">p</span><span class="text-slate-500">&gt;</span><br>
+                  &#125;
+                </div>
+                
+                @if (showDetails()) {
+                  <div class="p-3 rounded-xl bg-purple-50 border border-purple-100 text-purple-700 text-xs font-semibold mb-4 select-none animate-pulse flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Live Element Rendered!
+                  </div>
+                }
+              </div>
+              <button (click)="toggleDetails()" class="w-full py-3 bg-purple-650 hover:bg-purple-550 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-purple-650/10 cursor-pointer hover:-translate-y-0.5 active:translate-y-0">
+                Toggle Element 🔄
+              </button>
+            </div>
+
+            <!-- Attribute Directive Card -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-[10px] font-black text-pink-650 bg-pink-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Type 3</span>
+                  <span class="text-xs text-slate-400">Styling</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Attributes</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                  Directives that modify style, CSS classes, or behaviors of existing elements.
+                </p>
+                <div class="p-3 bg-slate-900 rounded-xl border border-slate-950 font-mono text-[10px] text-slate-300 mb-6">
+                  <span class="text-slate-500">&lt;</span><span class="text-indigo-400">div</span> <span class="text-pink-400">[appHighlight]</span><span class="text-slate-500">="'color'"</span><span class="text-slate-500">&gt;</span><br>
+                  &nbsp;&nbsp;Hover to test glow<br>
+                  <span class="text-slate-500">&lt;/</span><span class="text-indigo-400">div</span><span class="text-slate-500">&gt;</span>
+                </div>
+              </div>
+              <div class="py-2 text-center text-slate-500 bg-slate-50 border border-dashed border-slate-200 rounded-xl text-xs font-semibold cursor-default select-none">
+                Hover Feature Cards Above ✨
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      }
+
+      <!-- Tab Content: Pipes -->
+      @if (activeTab() === 'pipes') {
+        <div class="text-left w-full animate-fade-in">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold text-indigo-650 bg-indigo-100 px-3 py-1 rounded-full">Transforms</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Understanding Angular Pipes</h2>
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">Pipes format and transform data directly inside your templates, leaving original data pristine.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Uppercase Pipe Card -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md">
+              <div>
+                <span class="text-[10px] font-black text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">String Manipulation</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Uppercase Pipe</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                  Formats any standard string to uppercase, which is ideal for titles or emphasis.
+                </p>
+              </div>
+              <div>
+                <div class="p-3 bg-slate-900 rounded-xl border border-slate-950 font-mono text-[10px] text-slate-300 mb-3">
+                  {{ "{{ demoText() | uppercase }}" }}
+                </div>
+                <div class="text-xs text-slate-600 mb-4 bg-slate-50 p-2.5 rounded-lg flex justify-between items-center border border-slate-250">
+                  <span class="text-slate-400">Formatted:</span>
+                  <span class="text-indigo-650 font-bold font-mono">{{ demoText() | uppercase }}</span>
+                </div>
+                <button (click)="changeText()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-slate-950 rounded-xl text-xs font-semibold transition-all cursor-pointer hover:-translate-y-0.5 active:translate-y-0">
+                  Modify Text 🔠
+                </button>
+              </div>
+            </div>
+
+            <!-- Currency Pipe Card -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md">
+              <div>
+                <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Numbers & Currency</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Currency Pipe</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                  Converts raw numeric variables to formatted financial strings with symbols.
+                </p>
+              </div>
+              <div>
+                <div class="p-3 bg-slate-900 rounded-xl border border-slate-950 font-mono text-[10px] text-slate-300 mb-3">
+                  {{ "{{ demoPrice() | currency }}" }}
+                </div>
+                <div class="text-xs text-slate-600 mb-4 bg-slate-50 p-2.5 rounded-lg flex justify-between items-center border border-slate-250">
+                  <span class="text-slate-400">Formatted:</span>
+                  <span class="text-purple-655 font-bold font-mono">{{ demoPrice() | currency }}</span>
+                </div>
+                <button (click)="incrementPrice()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-slate-950 rounded-xl text-xs font-semibold transition-all cursor-pointer hover:-translate-y-0.5 active:translate-y-0">
+                  Add $100 💵
+                </button>
+              </div>
+            </div>
+
+            <!-- Date Pipe Card -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md">
+              <div>
+                <span class="text-[10px] font-black text-pink-650 bg-pink-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Dates & Times</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Date Pipe</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                  Formats Javascript Date instances or timestamps into customizable local formats.
+                </p>
+              </div>
+              <div>
+                <div class="p-3 bg-slate-900 rounded-xl border border-slate-950 font-mono text-[10px] text-slate-300 mb-3">
+                  {{ "{{ demoDate() | date:'mediumDate' }}" }}
+                </div>
+                <div class="text-xs text-slate-600 mb-4 bg-slate-100 p-2.5 rounded-lg flex justify-between items-center border border-slate-250">
+                  <span class="text-slate-400">Formatted:</span>
+                  <span class="text-pink-650 font-bold font-mono">{{ demoDate() | date:'mediumDate' }}</span>
+                </div>
+                <button (click)="updateDate()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-slate-950 rounded-xl text-xs font-semibold transition-all cursor-pointer hover:-translate-y-0.5 active:translate-y-0">
+                  Refresh Time 🕒
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
     </div>
-
   </div>
 </div>
