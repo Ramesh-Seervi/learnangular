@@ -24,7 +24,7 @@ export class Home implements OnInit {
   protected readonly showDetails = signal(false);
 
   // Tab control signal
-  protected readonly activeTab = signal<'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings'>('directives');
+  protected readonly activeTab = signal<'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di'>('directives');
 
   protected readonly lifecycleLogs = signal<string[]>([]);
   protected readonly isSimulating = signal<boolean>(false);
@@ -34,7 +34,7 @@ export class Home implements OnInit {
   protected readonly bindingClickCount = signal(0);
   protected twoWayValue = 'Angular Learner';
 
-  protected setTab(tab: 'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings'): void {
+  protected setTab(tab: 'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di'): void {
     this.activeTab.set(tab);
   }
 

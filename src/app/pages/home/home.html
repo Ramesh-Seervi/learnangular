@@ -88,6 +88,10 @@
                 [class]="activeTab() === 'bindings' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
           Data Binding 🔗
         </button>
+        <button (click)="setTab('di')"
+                [class]="activeTab() === 'di' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+          Dependency Injection 🔌
+        </button>
       </div>
 
       <!-- Tab Content: Directives -->
@@ -695,6 +699,129 @@
               <div class="p-4 bg-slate-50 border border-slate-200/50 rounded-xl space-y-3 text-left">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider select-none block">Interactive Input:</span>
                 <input [(ngModel)]="twoWayValue" class="w-full px-3 py-2 text-xs bg-white border border-slate-350/70 rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500" placeholder="Type here..." />
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+      
+      <!-- Tab Content: Dependency Injection -->
+      @if (activeTab() === 'di') {
+        <div class="text-left w-full animate-fade-in">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold text-indigo-655 bg-indigo-100 px-3 py-1 rounded-full">Architecture</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Dependency Injection (DI)</h2>
+            <p class="text-slate-655 text-sm max-w-xl mx-auto leading-relaxed">
+              Dependency Injection is a design pattern where a class requests dependencies from external sources rather than creating them itself.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Panel: Core DI Concepts (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+              <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <span>DI Core Concepts</span>
+                </h3>
+
+                <!-- Concepts List -->
+                <div class="space-y-6">
+                  <!-- Injectable Decorator -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-555/10 text-indigo-650 uppercase">&#64;Injectable()</span>
+                      <h4 class="text-sm font-bold text-slate-900">Injectable Decorator</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      Marks a TypeScript class as available to be injected. The metadata config option <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">providedIn: 'root'</code> registers it globally, creating a single shared instance (Singleton).
+                    </p>
+                  </div>
+
+                  <!-- Inject Function -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-355 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">inject() API</span>
+                      <h4 class="text-sm font-bold text-slate-900">Modern Injection Method</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      The recommended, modern way to resolve dependencies in Angular 14+. It can be used outside constructors (e.g. in initializer fields, custom functions) and enables better type inference.
+                    </p>
+                  </div>
+
+                  <!-- Constructor Injection -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">constructor() injection</span>
+                      <h4 class="text-sm font-bold text-slate-900">Traditional Method</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      The classic way of requesting services by defining them inside the component's constructor signature, e.g. <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">constructor(private auth: AuthService)</code>.
+                    </p>
+                  </div>
+
+                  <!-- Hierarchical Providers -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-550/10 text-purple-650 uppercase">providers: [ ]</span>
+                      <h4 class="text-sm font-bold text-slate-900">Hierarchical Resolution</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      Angular resolves dependencies hierarchically. Registering a service in a component's <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">providers</code> array creates a new, isolated instance of the service for that component tree.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Injection Comparison & Code Example (5 cols) -->
+            <div class="lg:col-span-5 space-y-6">
+              <!-- Comparison Card -->
+              <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-50/50 to-emerald-50/50 border border-indigo-150/50 shadow-sm">
+                <span class="text-[10px] font-black text-indigo-655 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Comparison</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Constructor vs. inject()</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                  Angular supports two styles of injection. The modern `inject()` function is cleaner and works outside classes.
+                </p>
+
+                <div class="space-y-3 font-mono text-[10px] text-slate-300">
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 text-left">
+                    <span class="text-slate-550">// Classic constructor style</span><br>
+                    <span class="text-indigo-400">constructor</span>(private auth: AuthService) &#123; &#125;
+                  </div>
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 text-left">
+                    <span class="text-slate-550">// Modern inject() style</span><br>
+                    private auth = inject(AuthService);
+                  </div>
+                </div>
+              </div>
+
+              <!-- Service & Injection Code Example Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Example Code</span>
+                <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">Service and Component Wiring</h3>
+                
+                <div class="space-y-4 text-left">
+                  <!-- Service Definition Code -->
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-350 overflow-x-auto leading-normal">
+                    <span class="text-slate-550">// 1. Create Injectable Service</span><br>
+                    <span class="text-indigo-400">import</span> &#123; Injectable &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br><br>
+                    <span class="text-purple-400">&#64;Injectable</span>(&#123; providedIn: <span class="text-emerald-400">'root'</span> &#125;)<br>
+                    <span class="text-indigo-400">export class</span> DataService &#123;<br>
+                    &nbsp;&nbsp;getData() &#123; <span class="text-indigo-400">return</span> <span class="text-emerald-400">'Hello!'</span>; &#125;<br>
+                    &#125;
+                  </div>
+
+                  <!-- Injecting in Component Code -->
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-355 overflow-x-auto leading-normal">
+                    <span class="text-slate-550">// 2. Inject Service inside Component</span><br>
+                    <span class="text-indigo-400">import</span> &#123; Component, inject &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br>
+                    <span class="text-indigo-400">import</span> &#123; DataService &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'./data.service'</span>;<br><br>
+                    <span class="text-purple-400">&#64;Component</span>(&#123; selector: <span class="text-emerald-400">'app-root'</span> &#125;)<br>
+                    <span class="text-indigo-400">export class</span> AppComponent &#123;<br>
+                    &nbsp;&nbsp;<span class="text-indigo-400">private</span> dataService = inject(DataService);<br>
+                    &#125;
+                  </div>
+                </div>
               </div>
             </div>
           </div>
