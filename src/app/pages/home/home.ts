@@ -24,7 +24,7 @@ export class Home implements OnInit {
   protected readonly showDetails = signal(false);
 
   // Tab control signal
-  protected readonly activeTab = signal<'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di'>('directives');
+  protected readonly activeTab = signal<'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di' | 'services'>('directives');
 
   protected readonly lifecycleLogs = signal<string[]>([]);
   protected readonly isSimulating = signal<boolean>(false);
@@ -34,7 +34,10 @@ export class Home implements OnInit {
   protected readonly bindingClickCount = signal(0);
   protected twoWayValue = 'Angular Learner';
 
-  protected setTab(tab: 'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di'): void {
+  // Services demo properties (mocking a shared service state)
+  protected readonly serviceCounter = signal(5);
+
+  protected setTab(tab: 'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di' | 'services'): void {
     this.activeTab.set(tab);
   }
 
@@ -44,6 +47,14 @@ export class Home implements OnInit {
 
   protected incrementBindingClick(): void {
     this.bindingClickCount.update(c => c + 1);
+  }
+
+  protected incrementServiceCounter(): void {
+    this.serviceCounter.update(c => c + 1);
+  }
+
+  protected decrementServiceCounter(): void {
+    this.serviceCounter.update(c => c - 1);
   }
 
   protected runLifecycleDemo(): void {

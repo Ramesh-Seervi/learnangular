@@ -92,6 +92,10 @@
                 [class]="activeTab() === 'di' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
           Dependency Injection 🔌
         </button>
+        <button (click)="setTab('services')"
+                [class]="activeTab() === 'services' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+          Services ⚙️
+        </button>
       </div>
 
       <!-- Tab Content: Directives -->
@@ -821,6 +825,127 @@
                     &nbsp;&nbsp;<span class="text-indigo-400">private</span> dataService = inject(DataService);<br>
                     &#125;
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+      
+      <!-- Tab Content: Services -->
+      @if (activeTab() === 'services') {
+        <div class="text-left w-full animate-fade-in">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold text-indigo-650 bg-indigo-100 px-3 py-1 rounded-full">Business Logic & State</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Angular Services</h2>
+            <p class="text-slate-655 text-sm max-w-xl mx-auto leading-relaxed">
+              Services organize and share business logic, configurations, API calls, and state across different components in your application.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Panel: Core Concepts (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+              <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <span>Core Services Concepts</span>
+                </h3>
+
+                <!-- Concepts List -->
+                <div class="space-y-6">
+                  <!-- Separation of Concerns -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-50 text-indigo-600 uppercase">Architecture</span>
+                      <h4 class="text-sm font-bold text-slate-900">Separation of Concerns</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      Keep components lightweight by moving complex data calculations, network calls (HttpClient requests), and storage persistence into service classes.
+                    </p>
+                  </div>
+
+                  <!-- Singletons -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-355 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">Singleton Pattern</span>
+                      <h4 class="text-sm font-bold text-slate-900">Singleton Instance</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      With <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">providedIn: 'root'</code>, Angular creates a single instance of the service on app load. Any component injecting this service interacts with the exact same instance.
+                    </p>
+                  </div>
+
+                  <!-- Share State -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">Shared State</span>
+                      <h4 class="text-sm font-bold text-slate-900">Cross-Component Communication</h4>
+                    </div>
+                    <p class="text-xs text-slate-655 leading-relaxed">
+                      Services act as central hubs. Components A and B can communicate and sync data immediately without complex parent-child input/output bindings.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Interactive Shared State Demo & Code Example (5 cols) -->
+            <div class="lg:col-span-5 space-y-6">
+              <!-- Shared State Simulator Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-black text-indigo-650 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Shared State Demo</span>
+                  <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Mock Shared Service State</h3>
+                  <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                    See how a shared Service state immediately syncs across unrelated component views.
+                  </p>
+
+                  <div class="space-y-4">
+                    <!-- Component A (Write/Update) -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-left">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase">Component A (Sender)</span>
+                        <span class="text-[9px] font-bold text-indigo-650 bg-indigo-555/10 px-1.5 py-0.5 rounded uppercase font-sans">State Modifying</span>
+                      </div>
+                      <div class="flex gap-2">
+                        <button (click)="incrementServiceCounter()" class="flex-1 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition-all shadow-sm cursor-pointer">
+                          Add 1 ➕
+                        </button>
+                        <button (click)="decrementServiceCounter()" class="flex-1 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-bold transition-all cursor-pointer font-sans">
+                          Sub 1 ➖
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Component B (Read/Output) -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-left">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase">Component B (Receiver)</span>
+                        <span class="text-[9px] font-bold text-emerald-650 bg-emerald-50 px-1.5 py-0.5 rounded uppercase font-sans">Reactive View</span>
+                      </div>
+                      <div class="p-2 bg-slate-950 rounded-lg border border-slate-900 text-center font-mono text-sm text-slate-350">
+                        Shared Value: <span class="text-emerald-400 font-bold font-mono">{{ serviceCounter() }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Service Signals Code Example Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider font-sans">Example Code</span>
+                <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">Shared State with Signals</h3>
+                
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-350 overflow-x-auto text-left leading-normal">
+                  <span class="text-indigo-400">import</span> &#123; Injectable, signal &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br><br>
+                  <span class="text-purple-400">&#64;Injectable</span>(&#123; providedIn: <span class="text-emerald-400">'root'</span> &#125;)<br>
+                  <span class="text-indigo-400">export class</span> CounterService &#123;<br>
+                  &nbsp;&nbsp;<span class="text-slate-500">// Read-only state exposed to components</span><br>
+                  &nbsp;&nbsp;public readonly count = signal(0);<br><br>
+                  &nbsp;&nbsp;public increment() &#123;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;this.count.update(c => c + 1);<br>
+                  &nbsp;&nbsp;&#125;<br>
+                  &#125;
                 </div>
               </div>
             </div>
