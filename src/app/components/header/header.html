@@ -1,12 +1,30 @@
-<header class="header">
-    <div class="logo">
-        My Angular Website
-    </div>
+<header class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/80 px-6 py-4 flex items-center justify-between">
+  <div class="flex items-center gap-2 select-none">
+    <span class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl w-9 h-9 flex items-center justify-center font-bold shadow-lg shadow-indigo-500/20">A</span>
+    <span class="bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent font-extrabold text-xl tracking-tight">LearnAngular</span>
+  </div>
 
-    <nav>
-        <a routerLink="/">Home</a>
-        <a routerLink="/services">Services</a>
-        <a routerLink="/contact">Contact</a>
-        <a routerLink="/login">Login</a>
-    </nav>
+  <nav class="flex items-center gap-1 md:gap-2">
+    <a routerLink="/" 
+       routerLinkActive="bg-zinc-800 text-white" 
+       [routerLinkActiveOptions]="{exact: true}"
+       class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200">
+       Home
+    </a>
+    <a routerLink="/services" 
+       routerLinkActive="bg-zinc-800 text-white" 
+       class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200">
+       Services
+    </a>
+    <a routerLink="/contact" 
+       routerLinkActive="bg-zinc-800 text-white" 
+       class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200">
+       Contact
+    </a>
+    <a routerLink="/login" 
+       routerLinkActive="bg-indigo-600 text-white shadow-lg shadow-indigo-500/20" 
+       class="ml-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white rounded-lg text-sm font-semibold transition-all duration-200">
+       Login
+    </a>
+  </nav>
 </header>
