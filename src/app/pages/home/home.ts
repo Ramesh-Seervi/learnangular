@@ -24,7 +24,7 @@ export class Home implements OnInit {
   protected readonly showDetails = signal(false);
 
   // Tab control signal
-  protected readonly activeTab = signal<'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di' | 'services'>('directives');
+  protected readonly activeTab = signal<'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di' | 'services' | 'providers'>('directives');
 
   protected readonly lifecycleLogs = signal<string[]>([]);
   protected readonly isSimulating = signal<boolean>(false);
@@ -37,7 +37,7 @@ export class Home implements OnInit {
   // Services demo properties (mocking a shared service state)
   protected readonly serviceCounter = signal(5);
 
-  protected setTab(tab: 'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di' | 'services'): void {
+  protected setTab(tab: 'directives' | 'pipes' | 'lifecycle' | 'modules' | 'bindings' | 'di' | 'services' | 'providers'): void {
     this.activeTab.set(tab);
   }
 
