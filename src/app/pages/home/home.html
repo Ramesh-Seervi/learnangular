@@ -100,6 +100,14 @@
                 [class]="activeTab() === 'providers' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
           Providers 🧩
         </button>
+        <button (click)="setTab('typescript')"
+                [class]="activeTab() === 'typescript' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+          TypeScript 📘
+        </button>
+        <button (click)="setTab('components')"
+                [class]="activeTab() === 'components' ? 'px-6 py-3.5 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-600/30 -translate-y-0.5 transition-all cursor-pointer' : 'px-6 py-3.5 bg-slate-200/70 border border-slate-300/40 text-slate-600 hover:text-slate-800 font-semibold rounded-2xl transition-all cursor-pointer'">
+          Component Architecture 🏗️
+        </button>
       </div>
 
       <!-- Tab Content: Directives -->
@@ -233,7 +241,7 @@
                 </div>
                 <div class="text-xs text-slate-600 mb-4 bg-slate-50 p-2.5 rounded-lg flex justify-between items-center border border-slate-250">
                   <span class="text-slate-400">Formatted:</span>
-                  <span class="text-purple-655 font-bold font-mono">{{ demoPrice() | currency }}</span>
+                  <span class="text-purple-700 font-bold font-mono">{{ demoPrice() | currency }}</span>
                 </div>
                 <button (click)="incrementPrice()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-slate-950 rounded-xl text-xs font-semibold transition-all cursor-pointer hover:-translate-y-0.5 active:translate-y-0">
                   Add $100 💵
@@ -273,7 +281,7 @@
           <div class="text-center mb-12">
             <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">Execution Sequence</span>
             <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Component Lifecycle Hooks</h2>
-            <p class="text-slate-655 text-sm max-w-xl mx-auto leading-relaxed">
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
               Angular manages components from creation to destruction. Tap into key lifecycle moments using lifecycle interface hooks.
             </p>
           </div>
@@ -406,7 +414,7 @@
                   </p>
 
                   <!-- Simulated Terminal Output -->
-                  <div class="bg-slate-950 rounded-xl border border-slate-900 p-4 font-mono text-[11px] text-slate-350 min-h-[190px] flex flex-col justify-end overflow-hidden mb-6 shadow-inner relative">
+                  <div class="bg-slate-950 rounded-xl border border-slate-900 p-4 font-mono text-[11px] text-slate-300 min-h-[190px] flex flex-col justify-end overflow-hidden mb-6 shadow-inner relative">
                     <div class="absolute top-2 left-3 flex gap-1.5">
                       <span class="w-2 h-2 rounded-full bg-rose-500"></span>
                       <span class="w-2 h-2 rounded-full bg-amber-500"></span>
@@ -489,7 +497,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-50 text-indigo-600 uppercase">declarations: [ ]</span>
                       <h4 class="text-sm font-bold text-slate-900">Declarations Array</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       List of components, directives, and pipes that belong specifically to this module. Elements can only belong to exactly <strong>one</strong> NgModule.
                     </p>
                   </div>
@@ -500,7 +508,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">imports: [ ]</span>
                       <h4 class="text-sm font-bold text-slate-900">Imports Array</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       List of other NgModules (e.g. <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">CommonModule</code>, <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">RouterModule</code>) whose exported components/directives/pipes are needed by declarations in this module.
                     </p>
                   </div>
@@ -508,10 +516,10 @@
                   <!-- Exports -->
                   <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
                     <div class="flex items-center gap-2 mb-2">
-                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-550/10 text-purple-650 uppercase">exports: [ ]</span>
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-500/10 text-purple-650 uppercase">exports: [ ]</span>
                       <h4 class="text-sm font-bold text-slate-900">Exports Array</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Subset of declarations that should be visible and usable by any other NgModule importing this module. Allows modular encapsulations.
                     </p>
                   </div>
@@ -522,7 +530,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">providers: [ ]</span>
                       <h4 class="text-sm font-bold text-slate-900">Providers Array</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Registers dependency injection providers. Services declared here are available in the module's injector scope (or application-wide scope depending on registration).
                     </p>
                   </div>
@@ -533,7 +541,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-rose-50 text-rose-600 uppercase">bootstrap: [ ]</span>
                       <h4 class="text-sm font-bold text-slate-900">Bootstrap Array</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Only used in the root NgModule (typically <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">AppModule</code>). Defines the main entrypoint component (e.g. <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">AppComponent</code>) to bootstrap first.
                     </p>
                   </div>
@@ -575,7 +583,7 @@
               <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
                 <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Example Code</span>
                 <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">NgModule Declaration</h3>
-                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-350 overflow-x-auto text-left leading-normal">
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-300 overflow-x-auto text-left leading-normal">
                   <span class="text-indigo-400">import</span> &#123; NgModule &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br>
                   <span class="text-indigo-400">import</span> &#123; CommonModule &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/common'</span>;<br>
                   <span class="text-indigo-400">import</span> &#123; UserComponent &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'./user.component'</span>;<br><br>
@@ -598,7 +606,7 @@
           <div class="text-center mb-12">
             <span class="text-xs font-bold text-indigo-650 bg-indigo-100 px-3 py-1 rounded-full">Templates & Binding</span>
             <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Templates & Data Binding</h2>
-            <p class="text-slate-655 text-sm max-w-xl mx-auto leading-relaxed">
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
               Angular links your component logic (TypeScript) to your template layout (HTML) using four distinct communication directions.
             </p>
           </div>
@@ -614,7 +622,7 @@
                 </p>
 
                 <!-- Code Example -->
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-350 mb-6 space-y-1">
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-300 mb-6 space-y-1">
                   <div><span class="text-slate-500">&lt;!-- HTML --&gt;</span></div>
                   <div>&lt;h4&gt;<span class="text-indigo-400">{{ "{{ twoWayValue }}" }}</span>&lt;/h4&gt;</div>
                 </div>
@@ -637,7 +645,7 @@
                 </p>
 
                 <!-- Code Example -->
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-350 mb-6 space-y-1">
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-300 mb-6 space-y-1">
                   <div><span class="text-slate-500">&lt;!-- HTML --&gt;</span></div>
                   <div>&lt;button <span class="text-amber-400">[disabled]</span>="isBtnDisabled()"&gt;Click&lt;/button&gt;</div>
                 </div>
@@ -672,7 +680,7 @@
                 </p>
 
                 <!-- Code Example -->
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-350 mb-6 space-y-1">
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-300 mb-6 space-y-1">
                   <div><span class="text-slate-500">&lt;!-- HTML --&gt;</span></div>
                   <div>&lt;button <span class="text-emerald-400">(click)</span>="incrementCount()"&gt;Count&lt;/button&gt;</div>
                 </div>
@@ -697,7 +705,7 @@
                 </p>
 
                 <!-- Code Example -->
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-350 mb-6 space-y-1">
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[10px] text-slate-300 mb-6 space-y-1">
                   <div><span class="text-slate-500">&lt;!-- HTML --&gt;</span></div>
                   <div>&lt;input <span class="text-purple-400">[(ngModel)]</span>="twoWayValue" /&gt;</div>
                 </div>
@@ -717,9 +725,9 @@
       @if (activeTab() === 'di') {
         <div class="text-left w-full animate-fade-in">
           <div class="text-center mb-12">
-            <span class="text-xs font-bold text-indigo-655 bg-indigo-100 px-3 py-1 rounded-full">Architecture</span>
+            <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">Architecture</span>
             <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Dependency Injection (DI)</h2>
-            <p class="text-slate-655 text-sm max-w-xl mx-auto leading-relaxed">
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
               Dependency Injection is a design pattern where a class requests dependencies from external sources rather than creating them itself.
             </p>
           </div>
@@ -737,10 +745,10 @@
                   <!-- Injectable Decorator -->
                   <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
                     <div class="flex items-center gap-2 mb-2">
-                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-555/10 text-indigo-650 uppercase">&#64;Injectable()</span>
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-500/10 text-indigo-650 uppercase">&#64;Injectable()</span>
                       <h4 class="text-sm font-bold text-slate-900">Injectable Decorator</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Marks a TypeScript class as available to be injected. The metadata config option <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">providedIn: 'root'</code> registers it globally, creating a single shared instance (Singleton).
                     </p>
                   </div>
@@ -751,7 +759,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">inject() API</span>
                       <h4 class="text-sm font-bold text-slate-900">Modern Injection Method</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       The recommended, modern way to resolve dependencies in Angular 14+. It can be used outside constructors (e.g. in initializer fields, custom functions) and enables better type inference.
                     </p>
                   </div>
@@ -762,7 +770,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">constructor() injection</span>
                       <h4 class="text-sm font-bold text-slate-900">Traditional Method</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       The classic way of requesting services by defining them inside the component's constructor signature, e.g. <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">constructor(private auth: AuthService)</code>.
                     </p>
                   </div>
@@ -770,10 +778,10 @@
                   <!-- Hierarchical Providers -->
                   <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
                     <div class="flex items-center gap-2 mb-2">
-                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-550/10 text-purple-650 uppercase">providers: [ ]</span>
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-500/10 text-purple-650 uppercase">providers: [ ]</span>
                       <h4 class="text-sm font-bold text-slate-900">Hierarchical Resolution</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Angular resolves dependencies hierarchically. Registering a service in a component's <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">providers</code> array creates a new, isolated instance of the service for that component tree.
                     </p>
                   </div>
@@ -785,7 +793,7 @@
             <div class="lg:col-span-5 space-y-6">
               <!-- Comparison Card -->
               <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-50/50 to-emerald-50/50 border border-indigo-150/50 shadow-sm">
-                <span class="text-[10px] font-black text-indigo-655 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Comparison</span>
+                <span class="text-[10px] font-black text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Comparison</span>
                 <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Constructor vs. inject()</h3>
                 <p class="text-xs text-slate-600 leading-relaxed mb-4">
                   Angular supports two styles of injection. The modern `inject()` function is cleaner and works outside classes.
@@ -793,11 +801,11 @@
 
                 <div class="space-y-3 font-mono text-[10px] text-slate-300">
                   <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 text-left">
-                    <span class="text-slate-550">// Classic constructor style</span><br>
+                    <span class="text-slate-400">// Classic constructor style</span><br>
                     <span class="text-indigo-400">constructor</span>(private auth: AuthService) &#123; &#125;
                   </div>
                   <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 text-left">
-                    <span class="text-slate-550">// Modern inject() style</span><br>
+                    <span class="text-slate-400">// Modern inject() style</span><br>
                     private auth = inject(AuthService);
                   </div>
                 </div>
@@ -810,8 +818,8 @@
                 
                 <div class="space-y-4 text-left">
                   <!-- Service Definition Code -->
-                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-350 overflow-x-auto leading-normal">
-                    <span class="text-slate-550">// 1. Create Injectable Service</span><br>
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-300 overflow-x-auto leading-normal">
+                    <span class="text-slate-400">// 1. Create Injectable Service</span><br>
                     <span class="text-indigo-400">import</span> &#123; Injectable &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br><br>
                     <span class="text-purple-400">&#64;Injectable</span>(&#123; providedIn: <span class="text-emerald-400">'root'</span> &#125;)<br>
                     <span class="text-indigo-400">export class</span> DataService &#123;<br>
@@ -820,8 +828,8 @@
                   </div>
 
                   <!-- Injecting in Component Code -->
-                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-355 overflow-x-auto leading-normal">
-                    <span class="text-slate-550">// 2. Inject Service inside Component</span><br>
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-300 overflow-x-auto leading-normal">
+                    <span class="text-slate-400">// 2. Inject Service inside Component</span><br>
                     <span class="text-indigo-400">import</span> &#123; Component, inject &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br>
                     <span class="text-indigo-400">import</span> &#123; DataService &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'./data.service'</span>;<br><br>
                     <span class="text-purple-400">&#64;Component</span>(&#123; selector: <span class="text-emerald-400">'app-root'</span> &#125;)<br>
@@ -842,7 +850,7 @@
           <div class="text-center mb-12">
             <span class="text-xs font-bold text-indigo-650 bg-indigo-100 px-3 py-1 rounded-full">Business Logic & State</span>
             <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Angular Services</h2>
-            <p class="text-slate-655 text-sm max-w-xl mx-auto leading-relaxed">
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
               Services organize and share business logic, configurations, API calls, and state across different components in your application.
             </p>
           </div>
@@ -863,7 +871,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-50 text-indigo-600 uppercase">Architecture</span>
                       <h4 class="text-sm font-bold text-slate-900">Separation of Concerns</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Keep components lightweight by moving complex data calculations, network calls (HttpClient requests), and storage persistence into service classes.
                     </p>
                   </div>
@@ -874,7 +882,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">Singleton Pattern</span>
                       <h4 class="text-sm font-bold text-slate-900">Singleton Instance</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       With <code class="font-mono text-xs bg-white border border-slate-200 px-1 rounded">providedIn: 'root'</code>, Angular creates a single instance of the service on app load. Any component injecting this service interacts with the exact same instance.
                     </p>
                   </div>
@@ -885,7 +893,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">Shared State</span>
                       <h4 class="text-sm font-bold text-slate-900">Cross-Component Communication</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Services act as central hubs. Components A and B can communicate and sync data immediately without complex parent-child input/output bindings.
                     </p>
                   </div>
@@ -909,7 +917,7 @@
                     <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-left">
                       <div class="flex items-center justify-between mb-2">
                         <span class="text-[10px] font-bold text-slate-400 uppercase">Component A (Sender)</span>
-                        <span class="text-[9px] font-bold text-indigo-650 bg-indigo-555/10 px-1.5 py-0.5 rounded uppercase font-sans">State Modifying</span>
+                        <span class="text-[9px] font-bold text-indigo-650 bg-indigo-500/10 px-1.5 py-0.5 rounded uppercase font-sans">State Modifying</span>
                       </div>
                       <div class="flex gap-2">
                         <button (click)="incrementServiceCounter()" class="flex-1 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition-all shadow-sm cursor-pointer">
@@ -927,7 +935,7 @@
                         <span class="text-[10px] font-bold text-slate-400 uppercase">Component B (Receiver)</span>
                         <span class="text-[9px] font-bold text-emerald-650 bg-emerald-50 px-1.5 py-0.5 rounded uppercase font-sans">Reactive View</span>
                       </div>
-                      <div class="p-2 bg-slate-950 rounded-lg border border-slate-900 text-center font-mono text-sm text-slate-350">
+                      <div class="p-2 bg-slate-950 rounded-lg border border-slate-900 text-center font-mono text-sm text-slate-300">
                         Shared Value: <span class="text-emerald-400 font-bold font-mono">{{ serviceCounter() }}</span>
                       </div>
                     </div>
@@ -940,7 +948,7 @@
                 <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider font-sans">Example Code</span>
                 <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">Shared State with Signals</h3>
                 
-                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-350 overflow-x-auto text-left leading-normal">
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-300 overflow-x-auto text-left leading-normal">
                   <span class="text-indigo-400">import</span> &#123; Injectable, signal &#125; <span class="text-indigo-400">from</span> <span class="text-emerald-400">'&#64;angular/core'</span>;<br><br>
                   <span class="text-purple-400">&#64;Injectable</span>(&#123; providedIn: <span class="text-emerald-400">'root'</span> &#125;)<br>
                   <span class="text-indigo-400">export class</span> CounterService &#123;<br>
@@ -963,7 +971,7 @@
           <div class="text-center mb-12">
             <span class="text-xs font-bold text-indigo-650 bg-indigo-100 px-3 py-1 rounded-full">Injection Configuration</span>
             <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Angular Providers</h2>
-            <p class="text-slate-655 text-sm max-w-xl mx-auto leading-relaxed">
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
               Providers instruct the Dependency Injector on how to resolve, construct, or fetch dependency instances for a given token.
             </p>
           </div>
@@ -985,7 +993,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-50 text-indigo-600 uppercase">useClass</span>
                       <h4 class="text-sm font-bold text-slate-900">Class Providers</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Instantiates a class. Allows replacing a base service class with an extended or alternative class implementation (mocking/customizing behavior).
                     </p>
                   </div>
@@ -996,7 +1004,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">useValue</span>
                       <h4 class="text-sm font-bold text-slate-900">Value Providers</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Binds a token to a fixed, static value (such as environment configurations, API keys, or application flags). No class instantiation occurs.
                     </p>
                   </div>
@@ -1007,7 +1015,7 @@
                       <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">useFactory</span>
                       <h4 class="text-sm font-bold text-slate-900">Factory Providers</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Creates a dependency value dynamically by invoking a custom factory function. Can accept inputs and inject other services to determine state.
                     </p>
                   </div>
@@ -1015,10 +1023,10 @@
                   <!-- useExisting -->
                   <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
                     <div class="flex items-center gap-2 mb-2">
-                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-550/10 text-purple-650 uppercase">useExisting</span>
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-500/10 text-purple-650 uppercase">useExisting</span>
                       <h4 class="text-sm font-bold text-slate-900">Existing Providers (Aliases)</h4>
                     </div>
-                    <p class="text-xs text-slate-655 leading-relaxed">
+                    <p class="text-xs text-slate-600 leading-relaxed">
                       Maps one injection token to another already existing provider. Acts as a clean alias to prevent duplicate service instantiations.
                     </p>
                   </div>
@@ -1060,24 +1068,354 @@
                 <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider font-sans">Example Code</span>
                 <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">Configuring Custom Providers</h3>
                 
-                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-350 overflow-x-auto text-left leading-normal space-y-3">
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-300 overflow-x-auto text-left leading-normal space-y-3">
                   <div>
-                    <span class="text-slate-550">// 1. Value Provider (Static Configuration)</span><br>
+                    <span class="text-slate-400">// 1. Value Provider (Static Configuration)</span><br>
                     &#123; provide: API_URL, useValue: <span class="text-emerald-400">'https://api.com'</span> &#125;
                   </div>
                   
                   <div>
-                    <span class="text-slate-550">// 2. Class Provider (Implementation swap)</span><br>
+                    <span class="text-slate-400">// 2. Class Provider (Implementation swap)</span><br>
                     &#123; provide: LoggerService, useClass: FileLoggerService &#125;
                   </div>
                   
                   <div>
-                    <span class="text-slate-550">// 3. Factory Provider (Dynamic logic)</span><br>
+                    <span class="text-slate-400">// 3. Factory Provider (Dynamic logic)</span><br>
                     &#123;<br>
                     &nbsp;&nbsp;provide: SharedConfig,<br>
                     &nbsp;&nbsp;useFactory: (auth) => auth.isAdmin() ? adminConfig : guestConfig,<br>
                     &nbsp;&nbsp;deps: [AuthService]<br>
                     &#125;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Tab Content: TypeScript for Angular -->
+      @if (activeTab() === 'typescript') {
+        <div class="text-left w-full animate-fade-in">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">Language Fundamentals</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">TypeScript in Angular</h2>
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
+              Angular is built entirely on TypeScript. Understanding its features like strong typing, decorators, access modifiers, and null safety is essential for clean code.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Panel: Core Concepts (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+              <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <span>Key TypeScript Features</span>
+                </h3>
+
+                <!-- Feature list -->
+                <div class="space-y-6">
+                  <!-- Decorators -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-50 text-indigo-600 uppercase">Decorators</span>
+                      <h4 class="text-sm font-bold text-slate-900">Metadata & Configuration</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Angular uses class decorators like <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">@Component</code>, <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">@Injectable</code>, and <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">@Directive</code> to attach configuration metadata to classes, letting Angular compiler understand how to instantiate and link them.
+                    </p>
+                  </div>
+
+                  <!-- Type Safety / Interfaces -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-355 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">Type Safety</span>
+                      <h4 class="text-sm font-bold text-slate-900">Interfaces & Strongly-Typed Signals</h4>
+                      <span class="text-[9px] font-black text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded tracking-wide uppercase">Compile Time Check</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Enforce compile-time safety by declaring interfaces for your data models. This ensures you catch property typos or wrong data assignments immediately. Signals also leverage TypeScript generics (e.g. <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">signal&lt;User[]&gt;([])</code>) to protect your reactive state.
+                    </p>
+                  </div>
+
+                  <!-- Access Modifiers -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">Encapsulation</span>
+                      <h4 class="text-sm font-bold text-slate-900">Access Modifiers & Readonly properties</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Use visibility keywords (<code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">public</code>, <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">private</code>, <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">protected</code>) and <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">readonly</code>. Protecting your fields guarantees that states are only modified through proper methods, maintaining strict data integrity.
+                    </p>
+                  </div>
+
+                  <!-- Strict Null Checks -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-500/10 text-purple-650 uppercase">Null Safety</span>
+                      <h4 class="text-sm font-bold text-slate-900">Strict Null Checks & Optional Chaining</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Angular projects enable strict null checking by default. This forces developers to explicitly handle potential null/undefined values using optional chaining (<code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">?.</code>) or non-null assertion (<code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">!</code>), eliminating "Cannot read property of undefined" runtime errors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Interactive Compiler Simulator & Code Example (5 cols) -->
+            <div class="lg:col-span-5 space-y-6">
+              <!-- TS Compiler Simulator Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-black text-indigo-650 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">TS Compiler Simulator</span>
+                  <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Simulate Compiler Checks</h3>
+                  <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                    Select a TypeScript scenario and watch how the compiler validates or reports typing issues in the console below.
+                  </p>
+
+                  <div class="space-y-4 mb-6">
+                    <!-- Scenario Buttons -->
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                      <button (click)="runTsCompilerDemo('success')"
+                              [class]="selectedTsScenario() === 'success' ? 'py-2 px-3 bg-indigo-600 text-white font-bold rounded-lg transition-all shadow-sm' : 'py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg transition-all cursor-pointer'">
+                        Success Case 🟢
+                      </button>
+                      <button (click)="runTsCompilerDemo('typeMismatch')"
+                              [class]="selectedTsScenario() === 'typeMismatch' ? 'py-2 px-3 bg-indigo-600 text-white font-bold rounded-lg transition-all shadow-sm' : 'py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg transition-all cursor-pointer'">
+                        Type Mismatch ❌
+                      </button>
+                      <button (click)="runTsCompilerDemo('accessViolation')"
+                              [class]="selectedTsScenario() === 'accessViolation' ? 'py-2 px-3 bg-indigo-600 text-white font-bold rounded-lg transition-all shadow-sm' : 'py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg transition-all cursor-pointer'">
+                        Access Violation ❌
+                      </button>
+                      <button (click)="runTsCompilerDemo('nullPointer')"
+                              [class]="selectedTsScenario() === 'nullPointer' ? 'py-2 px-3 bg-indigo-600 text-white font-bold rounded-lg transition-all shadow-sm' : 'py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg transition-all cursor-pointer'">
+                        Null Check Error ❌
+                      </button>
+                    </div>
+
+                    <!-- Simulator Output Console -->
+                    <div class="bg-slate-950 rounded-xl border border-slate-900 p-4 font-mono text-[11px] text-slate-300 min-h-[170px] flex flex-col justify-end overflow-hidden shadow-inner relative">
+                      <div class="absolute top-2 left-3 flex gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                      </div>
+                      
+                      <div class="space-y-1.5 flex flex-col justify-end flex-grow text-left pt-6">
+                        @if (tsConsoleLog().length === 0) {
+                          <p class="text-slate-500 italic select-none">Console idle. Select a scenario above to test...</p>
+                        } @else {
+                          @for (log of tsConsoleLog(); track $index) {
+                            <p class="animate-fade-in break-words" 
+                               [class.text-emerald-400]="log.startsWith('🟢')"
+                               [class.text-rose-400]="log.includes('error TS') || log.startsWith('🛑')"
+                               [class.text-amber-400]="log.startsWith('💡')">
+                              {{ log }}
+                            </p>
+                          }
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TypeScript Example Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider font-sans">Example Code</span>
+                <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">TypeScript Angular Component</h3>
+                
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-300 overflow-x-auto text-left leading-normal space-y-1">
+                  <div><span class="text-indigo-400">interface</span> User &#123; id: <span class="text-teal-400">number</span>; name: <span class="text-teal-400">string</span>; role?: <span class="text-teal-400">string</span>; &#125;</div>
+                  <br>
+                  <div><span class="text-purple-400">&#64;Component</span>(&#123; selector: <span class="text-emerald-400">'app-user'</span>, template: <span class="text-emerald-400">'...'</span> &#125;)</div>
+                  <div><span class="text-indigo-400">export class</span> UserComponent &#123;</div>
+                  <div>&nbsp;&nbsp;<span class="text-slate-400">// Strongly-typed Signal</span></div>
+                  <div>&nbsp;&nbsp;public readonly currentUser = signal&lt;User | null&gt;(<span class="text-teal-400">null</span>);</div>
+                  <br>
+                  <div>&nbsp;&nbsp;<span class="text-slate-400">// Inject service using new function syntax</span></div>
+                  <div>&nbsp;&nbsp;<span class="text-indigo-400">private readonly</span> userService = inject(UserService);</div>
+                  <br>
+                  <div>&nbsp;&nbsp;public loadUser(id: <span class="text-teal-400">number</span>): <span class="text-teal-400">void</span> &#123;</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;this.userService.fetch(id).subscribe(data => &#123;</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.currentUser.set(data);</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;&#125;);</div>
+                  <div>&nbsp;&nbsp;&#125;</div>
+                  <div>&#125;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Tab Content: Component Architecture -->
+      @if (activeTab() === 'components') {
+        <div class="text-left w-full animate-fade-in">
+          <div class="text-center mb-12">
+            <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">Architecture Design</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-4 mb-3">Component Architecture</h2>
+            <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
+              Components are the primary building blocks of an Angular application. They encapsulate view layouts, styles, and logic under modern standalone conventions.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Panel: Core Concepts (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+              <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <span>Key Component Architecture Concepts</span>
+                </h3>
+
+                <!-- Feature list -->
+                <div class="space-y-6">
+                  <!-- Component Decorator -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-indigo-50 text-indigo-600 uppercase">@Component</span>
+                      <h4 class="text-sm font-bold text-slate-900">Decorator Metadata</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Defines configuration flags like <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">selector</code>, <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">templateUrl</code> or inline template, and <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">styleUrls</code> to control styling.
+                    </p>
+                  </div>
+
+                  <!-- Standalone Components -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-355 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-50 text-emerald-600 uppercase">Standalone</span>
+                      <h4 class="text-sm font-bold text-slate-900">Module-Free Components</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Modern Angular components require zero boilerplate NgModules. Enable Standalone mode (default in v19+) to import components, directives, and pipes directly inside the decorator's <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">imports: [...]</code> array.
+                    </p>
+                  </div>
+
+                  <!-- Component Communication -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-blue-50 text-blue-600 uppercase">Data Flow</span>
+                      <h4 class="text-sm font-bold text-slate-900">Inputs & Outputs (Signals)</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Send data down to children using inputs (e.g. <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">input()</code> signals) and notify parents of changes using outputs (e.g. <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">output()</code> emitters). This creates a unidirectional and predictable data flow.
+                    </p>
+                  </div>
+
+                  <!-- ViewEncapsulation / Projection -->
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/50 hover:border-slate-350 transition-all">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-purple-500/10 text-purple-650 uppercase">Styles & Projection</span>
+                      <h4 class="text-sm font-bold text-slate-900">View Encapsulation & &lt;ng-content&gt;</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Scope your CSS styles using <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">ViewEncapsulation.Emulated</code> (default). Project custom template snippets into components using the structural placeholder <code class="font-mono text-[11px] bg-white border border-slate-200 px-1 rounded">&lt;ng-content&gt;&lt;/ng-content&gt;</code>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Interactive Simulator & Code Example (5 cols) -->
+            <div class="lg:col-span-5 space-y-6">
+              <!-- Component Communication Simulator -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                <span class="text-[10px] font-black text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Communication Simulator</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Parent-Child Interaction</h3>
+                <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                  Type a message to send down to the child component as an Input, and click child buttons to emit Output events back to the parent.
+                </p>
+
+                <!-- Parent Boundary -->
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl mb-6 text-left space-y-4">
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-black text-indigo-600 uppercase">Parent Component Boundary</span>
+                    <span class="text-[9px] bg-indigo-50 text-indigo-600 px-1.5 py-0.5 rounded font-bold">State Owner</span>
+                  </div>
+
+                  <!-- Parent Inputs -->
+                  <div>
+                    <label class="block text-[10px] font-semibold text-slate-500 uppercase mb-1">Send to Child (Input):</label>
+                    <input type="text" 
+                           [ngModel]="parentMessage()" 
+                           (ngModelChange)="parentMessage.set($event)"
+                           class="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs bg-white text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-500" />
+                  </div>
+
+                  <!-- Parent Output Event Log -->
+                  <div>
+                    <div class="flex justify-between items-center mb-1">
+                      <label class="block text-[10px] font-semibold text-slate-500 uppercase">Received Event Logs (Outputs):</label>
+                      <button (click)="clearChildEvents()" 
+                              [disabled]="childEventsLog().length === 0"
+                              class="text-[9px] text-indigo-600 hover:text-indigo-800 disabled:text-slate-300 font-bold">
+                        Clear Logs
+                      </button>
+                    </div>
+                    <div class="bg-slate-950 text-slate-300 p-3 rounded-lg font-mono text-[9px] h-24 overflow-y-auto space-y-1">
+                      @if (childEventsLog().length === 0) {
+                        <span class="text-slate-400 italic">No events caught yet... Click child buttons below.</span>
+                      } @else {
+                        @for (log of childEventsLog(); track $index) {
+                          <p class="animate-fade-in text-emerald-400 break-words">{{ log }}</p>
+                        }
+                      }
+                    </div>
+                  </div>
+
+                  <!-- Nested Child Component Boundary -->
+                  <div class="p-4 bg-white border border-dashed border-slate-300 rounded-xl space-y-3 shadow-inner">
+                    <div class="flex justify-between items-center">
+                      <span class="text-[9px] font-black text-emerald-650 uppercase">Nested Child Component</span>
+                      <span class="text-[8px] bg-emerald-50 text-emerald-600 px-1.5 py-0.5 rounded uppercase font-bold">Child View</span>
+                    </div>
+
+                    <!-- Displaying Input -->
+                    <div class="p-2 bg-slate-50 border border-slate-200/50 rounded-lg text-center font-sans">
+                      <p class="text-[9px] text-slate-400 uppercase font-sans">Received via @Input() / input():</p>
+                      <p class="text-xs font-bold text-slate-700 mt-0.5">{{ parentMessage() }}</p>
+                    </div>
+
+                    <!-- Emitting Outputs -->
+                    <div class="flex gap-2">
+                      <button (click)="triggerChildEvent('Greet Parent 👋')" 
+                              class="flex-1 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-[10px] font-bold transition-all cursor-pointer">
+                        Emit Greet 💬
+                      </button>
+                      <button (click)="triggerChildEvent('Heartbeat Pulse ❤️')" 
+                              class="flex-1 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-[10px] font-bold transition-all cursor-pointer">
+                        Emit Pulse 💓
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Component Code Example Card -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                <span class="text-[10px] font-black text-purple-650 bg-purple-100 px-2 py-0.5 rounded-md uppercase tracking-wider font-sans">Example Code</span>
+                <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">Modern Component Data Flow</h3>
+                
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 font-mono text-[9px] text-slate-300 overflow-x-auto text-left leading-normal space-y-3">
+                  <div>
+                    <span class="text-slate-400">// 1. Child Component exposing input & output</span><br>
+                    <span class="text-indigo-400">export class</span> ChildComponent &#123;<br>
+                    &nbsp;&nbsp;message = input&lt;<span class="text-teal-400">string</span>&gt;();<br>
+                    &nbsp;&nbsp;action = output&lt;<span class="text-teal-400">string</span>&gt;();<br><br>
+                    &nbsp;&nbsp;onClick() &#123;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;this.action.emit(<span class="text-emerald-400">'Button Clicked!'</span>);<br>
+                    &nbsp;&nbsp;&#125;<br>
+                    &#125;
+                  </div>
+                  <div>
+                    <span class="text-slate-400">// 2. Parent Template binding properties</span><br>
+                    &lt;app-child <br>
+                    &nbsp;&nbsp;[message]="parentMsg" <br>
+                    &nbsp;&nbsp;(action)="handleAction($event)"&gt;<br>
+                    &lt;/app-child&gt;
                   </div>
                 </div>
               </div>
